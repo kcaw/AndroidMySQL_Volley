@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.user_pc.tbcrudsql.Adapter.AdapterDataOrtu;
+import com.example.user_pc.tbcrudsql.Adapter.AdapterDataPembayaran;
 import com.example.user_pc.tbcrudsql.Model.ModelData;
 import com.example.user_pc.tbcrudsql.Util.AppController;
 import com.example.user_pc.tbcrudsql.Util.ServerAPI;
@@ -26,52 +27,54 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HalamanOrtu extends AppCompatActivity {
+public class HalamanPembayaran extends AppCompatActivity {
+
     RecyclerView mRecyclerview;
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mManager;
     List<ModelData> mItems;
-    Button btnInsertOrtu, btnDeleteOrtu, btnPembayaran;
+    Button btnInsertPbyr, btnDeletePbyr, btnmAwal;
     ProgressDialog pd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_halaman_ortu);
+        setContentView(R.layout.activity_halaman_pembayaran);
 
         mRecyclerview = (RecyclerView) findViewById(R.id.recyclerviewTemp);
-        btnInsertOrtu = (Button) findViewById(R.id.btn_insertOrtu);
-        btnDeleteOrtu = (Button) findViewById(R.id.btn_deleteOrtu);
-        btnPembayaran = (Button) findViewById(R.id.btn_pembayaran);
-        pd = new ProgressDialog(HalamanOrtu.this);
+        btnInsertPbyr = (Button) findViewById(R.id.btn_insertPbyr);
+        btnDeletePbyr = (Button) findViewById(R.id.btn_deletePbyr);
+        btnmAwal = (Button) findViewById(R.id.btn_mAwal);
+        pd = new ProgressDialog(HalamanPembayaran.this);
         mItems = new ArrayList<>();
 
         loadJson();
 
-        mManager = new LinearLayoutManager(HalamanOrtu.this,LinearLayoutManager.VERTICAL,false);
+        mManager = new LinearLayoutManager(HalamanPembayaran.this,LinearLayoutManager.VERTICAL,false);
         mRecyclerview.setLayoutManager(mManager);
-        mAdapter = new AdapterDataOrtu(HalamanOrtu.this,mItems);
+        mAdapter = new AdapterDataPembayaran(HalamanPembayaran.this,mItems);
         mRecyclerview.setAdapter(mAdapter);
 
-        btnInsertOrtu.setOnClickListener(new View.OnClickListener() {
+        btnInsertPbyr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HalamanOrtu.this,InsertOrtu.class);
+                Intent intent = new Intent(HalamanPembayaran.this,InsertPembayaran.class);
                 startActivity(intent);
             }
         });
 
-        btnDeleteOrtu.setOnClickListener(new View.OnClickListener() {
+        btnDeletePbyr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HalamanOrtu.this,deleteOrtu.class);
+                Intent intent = new Intent(HalamanPembayaran.this,DeletePembayaran.class);
                 startActivity(intent);
             }
         });
 
-        btnPembayaran.setOnClickListener(new View.OnClickListener() {
+        btnmAwal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HalamanOrtu.this,HalamanPembayaran.class);
+                Intent intent = new Intent(HalamanPembayaran.this,MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -84,7 +87,7 @@ public class HalamanOrtu extends AppCompatActivity {
         pd.setCancelable(false);
         pd.show();
 
-        JsonArrayRequest reqData = new JsonArrayRequest(Request.Method.POST, ServerAPI.URL_VIEW_ORTU,null,
+        JsonArrayRequest reqData = new JsonArrayRequest(Request.Method.POST, ServerAPI.URL_VIEW_PBYR,null,
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
@@ -95,10 +98,11 @@ public class HalamanOrtu extends AppCompatActivity {
                             try {
                                 JSONObject data = response.getJSONObject(i);
                                 ModelData md = new ModelData();
-                                md.setNik(data.getString("nik"));
-                                md.setNortu(data.getString("nortu"));
-                                md.setPekerjaan(data.getString("pekerjaan"));
-                                md.setAlamat(data.getString("alamat"));
+                                md.setNisn(data.getString("nisn"));
+                                md.setNsiswa(data.getString("nsiswa"));
+                                md.setPilprodi(data.getString("pilprodi"));
+                                md.setPiljurusan(data.getString("piljurusan"));
+                                md.setJumlah(data.getString("jumlah"));
                                 mItems.add(md);
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -119,4 +123,3 @@ public class HalamanOrtu extends AppCompatActivity {
     }
 
 }
-

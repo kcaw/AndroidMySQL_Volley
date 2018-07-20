@@ -9,16 +9,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.user_pc.tbcrudsql.InsertOrtu;
+import com.example.user_pc.tbcrudsql.InsertPembayaran;
 import com.example.user_pc.tbcrudsql.Model.ModelData;
 import com.example.user_pc.tbcrudsql.R;
 
 import java.util.List;
 
-public class AdapterDataOrtu extends RecyclerView.Adapter<AdapterDataOrtu.HolderData> {
+public class AdapterDataPembayaran extends RecyclerView.Adapter<AdapterDataPembayaran.HolderData> {
     private List<ModelData> mItems;
     private Context context;
 
-    public AdapterDataOrtu(Context context, List<ModelData> items)
+    public AdapterDataPembayaran(Context context, List<ModelData> items)
     {
         this.mItems = items;
         this.context = context;
@@ -26,7 +27,7 @@ public class AdapterDataOrtu extends RecyclerView.Adapter<AdapterDataOrtu.Holder
 
     @Override
     public HolderData onCreateViewHolder(ViewGroup parent, int viewType) {
-        View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_row_ortu,parent,false);
+        View layout = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_row_pembayaran,parent,false);
         HolderData holderData = new HolderData(layout);
         return holderData;
 
@@ -35,8 +36,8 @@ public class AdapterDataOrtu extends RecyclerView.Adapter<AdapterDataOrtu.Holder
     @Override
     public void onBindViewHolder(HolderData holder, int position) {
         ModelData md = mItems.get(position);
-        holder.tvnortu.setText(md.getNortu());
-        holder.tvnik.setText(md.getNik());
+        holder.tvnsiswa.setText(md.getNsiswa());
+        holder.tvnisn.setText(md.getNisn());
 
         holder.md = md;
 
@@ -50,27 +51,28 @@ public class AdapterDataOrtu extends RecyclerView.Adapter<AdapterDataOrtu.Holder
 
     class HolderData extends RecyclerView.ViewHolder
     {
-        TextView tvnortu,tvnik;
+        TextView tvnsiswa,tvnisn;
         ModelData md;
 
         public HolderData (View view)
         {
             super(view);
 
-            tvnortu = (TextView) view.findViewById(R.id.nortu);
-            tvnik = (TextView) view.findViewById(R.id.nik);
+            tvnsiswa = (TextView) view.findViewById(R.id.nsiswa);
+            tvnisn = (TextView) view.findViewById(R.id.nisn);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent updatee = new Intent(context, InsertOrtu.class);
-                    updatee.putExtra("update",1);
-                    updatee.putExtra("nik", md.getNik());
-                    updatee.putExtra("nortu", md.getNortu());
-                    updatee.putExtra("pekerjaan", md.getPekerjaan());
-                    updatee.putExtra("alamat", md.getAlamat());
+                    Intent update = new Intent(context, InsertPembayaran.class);
+                    update.putExtra("update",1);
+                    update.putExtra("nisn", md.getNisn());
+                    update.putExtra("nsiswa", md.getNsiswa());
+                    update.putExtra("pilprodi", md.getPilprodi());
+                    update.putExtra("piljurusan", md.getPiljurusan());
+                    update.putExtra("jumlah", md.getJumlah());
 
-                    context.startActivity(updatee);
+                    context.startActivity(update);
                 }
             });
         }

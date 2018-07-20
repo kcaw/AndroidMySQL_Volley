@@ -24,15 +24,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="this for nik"
-                android:id="@+id/nik"/>
+                android:text="this for nisn"
+                android:id="@+id/nisn"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="this for nortu"
-                android:layout_below="@+id/nik"
-                android:id="@+id/nortu"/>
+                android:text="this for nsiswa"
+                android:layout_below="@+id/nisn"
+                android:id="@+id/nsiswa"/>
         </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

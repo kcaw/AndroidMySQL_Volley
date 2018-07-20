@@ -23,7 +23,10 @@
         <activity android:name=".Delete" />
         <activity android:name=".InsertOrtu" />
         <activity android:name=".HalamanOrtu" />
-        <activity android:name=".deleteOrtu"></activity>
+        <activity android:name=".deleteOrtu" />
+        <activity android:name=".HalamanPembayaran" />
+        <activity android:name=".InsertPembayaran" />
+        <activity android:name=".DeletePembayaran"></activity>
     </application>
 
 </manifest>

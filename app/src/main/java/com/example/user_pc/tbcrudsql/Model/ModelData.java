@@ -1,11 +1,13 @@
 package com.example.user_pc.tbcrudsql.Model;
 
 public class ModelData {
-    String npm,nama,prodi,fakultas,nik,nortu,pekerjaan,alamat;
+    String npm,nama,prodi,fakultas,nik,nortu,pekerjaan,alamat,nisn,nsiswa,pilprodi,piljurusan,jumlah;
 
     public ModelData(){}
 
-    public ModelData(String npm, String nama, String prodi, String fakultas, String nik, String nortu, String pekerjaan, String alamat) {
+    public ModelData(String npm, String nama, String prodi, String fakultas,
+                     String nik, String nortu, String pekerjaan, String alamat,
+                     String nisn, String nsiswa, String pilprodi, String piljurusan, String jumlah) {
         this.npm = npm;
         this.nama = nama;
         this.prodi = prodi;
@@ -15,6 +17,12 @@ public class ModelData {
         this.nortu = nortu;
         this.pekerjaan = pekerjaan;
         this.alamat = alamat;
+
+        this.nisn = nisn;
+        this.nsiswa = nsiswa;
+        this.pilprodi = pilprodi;
+        this.piljurusan = piljurusan;
+        this.jumlah = jumlah;
     }
 
     public String getNpm() {
@@ -49,12 +57,13 @@ public class ModelData {
         this.fakultas = fakultas;
     }
 
+
     public String getNik() {
         return nik;
     }
 
     public void setNik(String nik) {
-        this.npm = nik;
+        this.nik = nik;
     }
 
     public String getNortu() {
@@ -80,4 +89,46 @@ public class ModelData {
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
+
+
+    public String getNisn() {
+        return nisn;
+    }
+
+    public void setNisn(String nisn) {
+        this.nisn = nisn;
+    }
+
+    public String getNsiswa() {
+        return nsiswa;
+    }
+
+    public void setNsiswa(String nsiswa) {
+        this.nsiswa = nsiswa;
+    }
+
+    public String getPilprodi() {
+        return pilprodi;
+    }
+
+    public void setPilprodi(String pilprodi) {
+        this.pilprodi = pilprodi;
+    }
+
+    public String getPiljurusan() {
+        return piljurusan;
+    }
+
+    public void setPiljurusan(String piljurusan) {
+        this.piljurusan = piljurusan;
+    }
+
+    public String getJumlah() {
+        return jumlah;
+    }
+
+    public void setJumlah(String jumlah) {
+        this.jumlah = jumlah;
+    }
+
 }
