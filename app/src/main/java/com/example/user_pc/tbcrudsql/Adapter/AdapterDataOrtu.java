@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.user_pc.tbcrudsql.InsertOrtu;
+import com.example.user_pc.tbcrudsql.ortu.InsertOrtu;
 import com.example.user_pc.tbcrudsql.Model.ModelData;
 import com.example.user_pc.tbcrudsql.R;
 

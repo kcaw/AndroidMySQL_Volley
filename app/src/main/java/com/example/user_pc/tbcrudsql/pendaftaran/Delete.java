@@ -1,4 +1,4 @@
-package com.example.user_pc.tbcrudsql;
+package com.example.user_pc.tbcrudsql.pendaftaran;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -15,6 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.user_pc.tbcrudsql.R;
 import com.example.user_pc.tbcrudsql.Util.AppController;
 import com.example.user_pc.tbcrudsql.Util.ServerAPI;
 
@@ -24,20 +25,20 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class deleteOrtu extends AppCompatActivity {
-    EditText deleteOrtuID;
-    Button btnDeleteOrtu;
+public class Delete extends AppCompatActivity {
+    EditText deleteID;
+    Button btnDelete;
     ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delete_ortu);
+        setContentView(R.layout.activity_delete);
 
-        deleteOrtuID = (EditText) findViewById(R.id.nik_param);
-        btnDeleteOrtu = (Button) findViewById(R.id.btn_deleteOrtu);
-        pd = new ProgressDialog(deleteOrtu.this);
+        deleteID = (EditText) findViewById(R.id.npm_param);
+        btnDelete = (Button) findViewById(R.id.btn_delete);
+        pd = new ProgressDialog(Delete.this);
 
-        btnDeleteOrtu.setOnClickListener(new View.OnClickListener() {
+        btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //delete hare action
@@ -45,13 +46,15 @@ public class deleteOrtu extends AppCompatActivity {
             }
         });
     }
+
+
     private void deleteData()
     {
         pd.setMessage("Delete Data...");
         pd.setCancelable(false);
         pd.show();
 
-        StringRequest delReq = new StringRequest(Request.Method.POST, ServerAPI.URL_DELETE_ORTU,
+        StringRequest delReq = new StringRequest(Request.Method.POST, ServerAPI.URL_DELETE,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -59,13 +62,13 @@ public class deleteOrtu extends AppCompatActivity {
                         Log.d("volley","response : " + response.toString());
                         try {
                             JSONObject res = new JSONObject(response);
-                            Toast.makeText(deleteOrtu.this, "pesam : " +res.getString("message") , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Delete.this, "pesam : " +res.getString("message") , Toast.LENGTH_SHORT).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
 
 
-                        startActivity(new Intent(deleteOrtu.this,HalamanOrtu.class));
+                        startActivity(new Intent(Delete.this,MainActivity.class));
 
                     }
                 },
@@ -74,14 +77,14 @@ public class deleteOrtu extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         pd.cancel();
                         Log.d("volley", "error : " + error.getMessage());
-                        Toast.makeText(deleteOrtu.this, "pesan : gagal menghapus data", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Delete.this, "pesan : gagal menghapus data", Toast.LENGTH_SHORT).show();
 
                     }
                 }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<>();
-                map.put("nik",deleteOrtuID.getText().toString());
+                map.put("npm",deleteID.getText().toString());
                 return map;
             }
         };

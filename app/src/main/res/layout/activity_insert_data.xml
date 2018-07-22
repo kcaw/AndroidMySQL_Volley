@@ -15,7 +15,8 @@ android:padding="10dp">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nomor Induk Siswa Nasional"
-        android:id="@+id/inp_npm"/>
+        android:id="@+id/inp_npm"
+        android:inputType="number"/>
 
 </android.support.design.widget.TextInputLayout>
 
@@ -28,7 +29,8 @@ android:padding="10dp">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nama Lengkap"
-        android:id="@+id/inp_nama"/>
+        android:id="@+id/inp_nama"
+        android:inputType="textPersonName"/>
 
 </android.support.design.widget.TextInputLayout>
 
@@ -41,7 +43,8 @@ android:padding="10dp">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Program Studi"
-        android:id="@+id/inp_prodi"/>
+        android:id="@+id/inp_prodi"
+        android:inputType="textPersonName"/>
 
 </android.support.design.widget.TextInputLayout>
 
@@ -54,7 +57,8 @@ android:padding="10dp">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Jurusan Yang Dipilih"
-        android:id="@+id/inp_fakultas"/>
+        android:id="@+id/inp_fakultas"
+        android:inputType="textPersonName"/>
 
 </android.support.design.widget.TextInputLayout>
 

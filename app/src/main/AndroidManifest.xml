@@ -12,21 +12,26 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InsertData" />
-        <activity android:name=".Delete" />
-        <activity android:name=".InsertOrtu" />
-        <activity android:name=".HalamanOrtu" />
-        <activity android:name=".deleteOrtu" />
-        <activity android:name=".HalamanPembayaran" />
-        <activity android:name=".InsertPembayaran" />
-        <activity android:name=".DeletePembayaran"></activity>
+        <activity android:name=".pendaftaran.MainActivity" />
+        <activity android:name=".pendaftaran.InsertData" />
+        <activity android:name=".pendaftaran.Delete" />
+        <activity android:name=".ortu.InsertOrtu" />
+        <activity android:name=".ortu.HalamanOrtu" />
+        <activity android:name=".ortu.deleteOrtu" />
+        <activity android:name=".pembayaran.HalamanPembayaran" />
+        <activity android:name=".pembayaran.InsertPembayaran" />
+        <activity android:name=".pembayaran.DeletePembayaran" />
+        <activity
+            android:name=".Utama"
+            android:label="@string/title_activity_utama"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

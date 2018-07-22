@@ -1,7 +1,8 @@
-package com.example.user_pc.tbcrudsql;
+package com.example.user_pc.tbcrudsql.pendaftaran;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,12 +17,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.user_pc.tbcrudsql.Adapter.AdapterData;
 import com.example.user_pc.tbcrudsql.Model.ModelData;
+import com.example.user_pc.tbcrudsql.R;
 import com.example.user_pc.tbcrudsql.Util.AppController;
 import com.example.user_pc.tbcrudsql.Util.ServerAPI;
-import com.example.user_pc.tbcrudsql.Adapter.AdapterData;
-import com.example.user_pc.tbcrudsql.Model.ModelData;
-import com.example.user_pc.tbcrudsql.Util.AppController;
-import com.example.user_pc.tbcrudsql.Util.ServerAPI;
+import com.example.user_pc.tbcrudsql.ortu.HalamanOrtu;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mManager;
     List<ModelData> mItems;
-    Button btnInsert, btnDelete, btnOrtu;
+    Button btnInsert, btnDelete;
     ProgressDialog pd;
 
     @Override
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerview = (RecyclerView) findViewById(R.id.recyclerviewTemp);
         btnInsert = (Button) findViewById(R.id.btn_insert);
         btnDelete = (Button) findViewById(R.id.btn_delete);
-        btnOrtu = (Button) findViewById(R.id.btn_ortu);
         pd = new ProgressDialog(MainActivity.this);
         mItems = new ArrayList<>();
 
@@ -60,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,InsertData.class);
+                Intent intent = new Intent(MainActivity.this, InsertData.class);
                 startActivity(intent);
             }
         });
@@ -68,18 +66,11 @@ public class MainActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent hapus = new Intent(MainActivity.this,Delete.class);
+                Intent hapus = new Intent(MainActivity.this, Delete.class);
                 startActivity(hapus);
             }
         });
 
-       btnOrtu.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent ortu = new Intent(MainActivity.this,HalamanOrtu.class);
-               startActivity(ortu);
-           }
-       });
     }
 
 

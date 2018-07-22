@@ -9,14 +9,18 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context=".DeletePembayaran">
+    tools:context=".pembayaran.DeletePembayaran">
 
-    <EditText
-        android:id="@+id/nisn_param"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan NISN Siswa Pendaftar"
-        android:inputType="textPersonName" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/nisn_param"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan NISN Siswa Pendaftar"
+            android:inputType="number" />
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/btn_deletePbyr"

@@ -9,14 +9,19 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context=".deleteOrtu">
+    tools:context=".ortu.deleteOrtu">
 
-    <EditText
-        android:id="@+id/nik_param"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan NIK"
-        android:inputType="textPersonName" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/nik_param"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan NIK"
+            android:inputType="number"/>
+    </android.support.design.widget.TextInputLayout>
+
 
     <Button
         android:id="@+id/btn_deleteOrtu"
