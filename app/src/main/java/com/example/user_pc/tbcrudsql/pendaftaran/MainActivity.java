@@ -18,6 +18,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.user_pc.tbcrudsql.Adapter.AdapterData;
 import com.example.user_pc.tbcrudsql.Model.ModelData;
 import com.example.user_pc.tbcrudsql.R;
+import com.example.user_pc.tbcrudsql.Utama;
 import com.example.user_pc.tbcrudsql.Util.AppController;
 import com.example.user_pc.tbcrudsql.Util.ServerAPI;
 import com.example.user_pc.tbcrudsql.ortu.HalamanOrtu;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mManager;
     List<ModelData> mItems;
-    Button btnInsert, btnDelete;
+    Button btnInsert, btnDelete, btnHome;
     ProgressDialog pd;
 
     @Override
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerview = (RecyclerView) findViewById(R.id.recyclerviewTemp);
         btnInsert = (Button) findViewById(R.id.btn_insert);
         btnDelete = (Button) findViewById(R.id.btn_delete);
+        btnHome   = (Button) findViewById(R.id.btn_home);
         pd = new ProgressDialog(MainActivity.this);
         mItems = new ArrayList<>();
 
@@ -67,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent hapus = new Intent(MainActivity.this, Delete.class);
+                startActivity(hapus);
+            }
+        });
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent hapus = new Intent(MainActivity.this, Utama.class);
                 startActivity(hapus);
             }
         });

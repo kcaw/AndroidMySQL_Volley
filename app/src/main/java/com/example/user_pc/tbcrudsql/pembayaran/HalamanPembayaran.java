@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.user_pc.tbcrudsql.Adapter.AdapterDataPembayaran;
+import com.example.user_pc.tbcrudsql.Utama;
 import com.example.user_pc.tbcrudsql.pendaftaran.MainActivity;
 import com.example.user_pc.tbcrudsql.Model.ModelData;
 import com.example.user_pc.tbcrudsql.R;
@@ -34,7 +35,7 @@ public class HalamanPembayaran extends AppCompatActivity {
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mManager;
     List<ModelData> mItems;
-    Button btnInsertPbyr, btnDeletePbyr;
+    Button btnInsertPbyr, btnDeletePbyr, btnHome2;
     ProgressDialog pd;
 
     @Override
@@ -45,6 +46,7 @@ public class HalamanPembayaran extends AppCompatActivity {
         mRecyclerview = (RecyclerView) findViewById(R.id.recyclerviewTemp);
         btnInsertPbyr = (Button) findViewById(R.id.btn_insertPbyr);
         btnDeletePbyr = (Button) findViewById(R.id.btn_deletePbyr);
+        btnHome2 = (Button) findViewById(R.id.btn_home2);
         pd = new ProgressDialog(HalamanPembayaran.this);
         mItems = new ArrayList<>();
 
@@ -67,6 +69,14 @@ public class HalamanPembayaran extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HalamanPembayaran.this,DeletePembayaran.class);
+                startActivity(intent);
+            }
+        });
+
+        btnHome2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HalamanPembayaran.this,Utama.class);
                 startActivity(intent);
             }
         });

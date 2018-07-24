@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.user_pc.tbcrudsql.Adapter.AdapterDataOrtu;
+import com.example.user_pc.tbcrudsql.Utama;
 import com.example.user_pc.tbcrudsql.pembayaran.HalamanPembayaran;
 import com.example.user_pc.tbcrudsql.Model.ModelData;
 import com.example.user_pc.tbcrudsql.R;
@@ -33,7 +34,7 @@ public class HalamanOrtu extends AppCompatActivity {
     RecyclerView.Adapter mAdapter;
     RecyclerView.LayoutManager mManager;
     List<ModelData> mItems;
-    Button btnInsertOrtu, btnDeleteOrtu;
+    Button btnInsertOrtu, btnDeleteOrtu, btnHome1;
     ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class HalamanOrtu extends AppCompatActivity {
         mRecyclerview = (RecyclerView) findViewById(R.id.recyclerviewTemp);
         btnInsertOrtu = (Button) findViewById(R.id.btn_insertOrtu);
         btnDeleteOrtu = (Button) findViewById(R.id.btn_deleteOrtu);
+        btnHome1 = (Button) findViewById(R.id.btn_home1);
         pd = new ProgressDialog(HalamanOrtu.this);
         mItems = new ArrayList<>();
 
@@ -65,6 +67,14 @@ public class HalamanOrtu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HalamanOrtu.this,deleteOrtu.class);
+                startActivity(intent);
+            }
+        });
+
+        btnHome1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HalamanOrtu.this,Utama.class);
                 startActivity(intent);
             }
         });

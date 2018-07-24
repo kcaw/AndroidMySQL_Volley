@@ -15,6 +15,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import com.example.user_pc.tbcrudsql.ortu.HalamanOrtu;
 import com.example.user_pc.tbcrudsql.pembayaran.HalamanPembayaran;
 import com.example.user_pc.tbcrudsql.pendaftaran.MainActivity;
 
@@ -100,7 +101,7 @@ public class Utama extends AppCompatActivity
             Toast.makeText(this, "Pendaftaran", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_ortu) {
-            Intent ii = (new Intent(Utama.this, HalamanPembayaran.class));
+            Intent ii = (new Intent(Utama.this, HalamanOrtu.class));
             startActivity(ii);
 
             Toast.makeText(this, "Input Data Orang Tua", Toast.LENGTH_SHORT).show();

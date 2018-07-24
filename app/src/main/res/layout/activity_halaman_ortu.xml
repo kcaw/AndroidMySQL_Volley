@@ -11,6 +11,16 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_home1"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_utama"
+            android:textSize="13dp"
+            android:text="Home" />
+
+        <Button
             android:id="@+id/btn_insertOrtu"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"

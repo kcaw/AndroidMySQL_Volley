@@ -10,12 +10,23 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_home"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_utama"
+            android:textSize="13dp"
+            android:text="Home" />
+
+        <Button
             android:id="@+id/btn_insert"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableLeft="@drawable/ic_insert"
+            android:textSize="13dp"
             android:text="Insert" />
 
         <Button
@@ -25,7 +36,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:drawableLeft="@drawable/ic_delete"
+            android:textSize="13dp"
             android:text="Delete" />
+
+
 
     </LinearLayout>
 
